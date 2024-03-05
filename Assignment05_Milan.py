@@ -12,6 +12,9 @@ class BasicMathOperations:
     def greetUser(self, firstName, lastName):
         print("Welcome, " + str(firstName), lastName + "!")
         
+    def addNumbers(self, num1, num2):
+        return(num1+num2)
+        
 def main():
     instructions = """Welcome! Here are your available options to choose:
     1. Greet User: Be greeted with your full name
@@ -34,3 +37,7 @@ def main():
             firstName = input("Please enter your first name: ")
             lastName = input ("Please enter your last name: ")
             mathObject.greetUser(firstName, lastName)
+        elif choice == 2:
+            numTup = eval(input("Please input 2 numbers, separated by commas: "))
+            addNum = mathObject.addNumbers(numTup[0], numTup[1])
+            print(f"{numTup[0]} + {numTup[1]} = {addNum:.2f}")
