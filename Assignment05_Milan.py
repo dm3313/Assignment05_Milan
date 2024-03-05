@@ -38,6 +38,22 @@ class BasicMathOperations:
             for i in range (2,num+1):
                 factorial *= i
         return(factorial)
+    
+    def countNum(self,start,end):
+        countList = []
+        if start<end:
+            for i in range(start,end+1):
+                countList.append(i)
+        else:
+            for i in range(start,end-1,-1):
+                countList.append(i)
+        return(countList)
+    
+    def hypotenuse(self,leg1,leg2):
+        leg1square = self.square(leg1)
+        leg2square = self.square(leg2)
+        hypotenuse = math.sqrt(leg1square + leg2square)
+        return(hypotenuse)
             
 def main():
     instructions = """Welcome! Here are your available options to choose:
@@ -81,3 +97,12 @@ def main():
                 print(f"{factNum}! = {fact}")
             else:
                 print("You can't take the factorial of a negative")
+        elif choice == 6:
+            start = int(input("Please enter an integer to be the start number: "))
+            end = int(input("Please enter an integer to be the end number: "))
+            count = mathObject.countNum(start,end)
+            print(count)
+        elif choice == 7:
+            numTup = eval(input("Please input the two legs of the right triangle, separated by commas: "))
+            hypot = mathObject.hypotenuse(numTup[0],numTup[1])
+            print(f"The hypotenuse of a right triangle with legs {numTup[0]} and {numTup[1]} is {hypot:.2f}")
