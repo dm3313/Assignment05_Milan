@@ -27,6 +27,18 @@ class BasicMathOperations:
         else:
             print("Invalid operation. Please try again")
             
+    def square(self, num):
+        return(num**2)
+    
+    def factorial(self,num):
+        if num == 0:
+            factorial = 1
+        else:
+            factorial = 1
+            for i in range (2,num+1):
+                factorial *= i
+        return(factorial)
+            
 def main():
     instructions = """Welcome! Here are your available options to choose:
     1. Greet User: Be greeted with your full name
@@ -58,3 +70,14 @@ def main():
             operation = input("What operation would you like? ").casefold()
             performed = mathObject.performOperation(numTup[0],numTup[1],operation)
             print(f"The answer is: {performed:.2f}")
+        elif choice == 4:
+            numIn = eval(input("What number would you like squared? "))
+            squared = mathObject.square(numIn)
+            print(f"{numIn} squared is {squared:.2f}")
+        elif choice == 5:
+            factNum = int(input("What integer would you like the factorial of? "))
+            if factNum >= 0:
+                fact = mathObject.factorial(factNum)
+                print(f"{factNum}! = {fact}")
+            else:
+                print("You can't take the factorial of a negative")
