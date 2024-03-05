@@ -15,6 +15,18 @@ class BasicMathOperations:
     def addNumbers(self, num1, num2):
         return(num1+num2)
         
+    def performOperation(self, num1, num2, operation):
+        if operation == "multiplication":
+            return(num1 * num2)
+        elif operation == "division":
+            return(num1/num2)
+        elif operation == "addition":
+            return(num1+num2)
+        elif operation == "subtraction":
+            return(num1-num2)
+        else:
+            print("Invalid operation. Please try again")
+            
 def main():
     instructions = """Welcome! Here are your available options to choose:
     1. Greet User: Be greeted with your full name
@@ -41,3 +53,8 @@ def main():
             numTup = eval(input("Please input 2 numbers, separated by commas: "))
             addNum = mathObject.addNumbers(numTup[0], numTup[1])
             print(f"{numTup[0]} + {numTup[1]} = {addNum:.2f}")
+        elif choice == 3:
+            numTup = eval(input("Please input 2 numbers, separated by commas: "))
+            operation = input("What operation would you like? ").casefold()
+            performed = mathObject.performOperation(numTup[0],numTup[1],operation)
+            print(f"The answer is: {performed:.2f}")
